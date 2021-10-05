@@ -74,13 +74,9 @@
         </table>
       </div>
       <div class="box">
-        <table class="table" id="station-2">
-          <thead>
-            <th id="station-2" colspan="3"></th>
-          </thead>
-          <tbody id="tbody-station-2"></tbody>
-        </table>
+        <div id="clock">10:00</div>
       </div>
+        
     </div>
 
     <script src="js/vendor/modernizr-3.8.0.min.js"></script>
@@ -105,14 +101,16 @@
           // Update the header text
           const header = document.querySelector(`#station-${index} th`);
           if (header) {
-            header.innerText = data.name;
+            const end_str = index % 2 == 1 ? " Inbound" : " Outbound"
+            header.innerText = data.name + end_str;
           }
+          console.log(data)
 
           // Loop through the trains
           for (let i = 0; i < limit; i++) {
             // Get the train number. Sometimes they include letters, like X for express. Remove those
-            const trainId = data.trains[i].trainId.replace(/[^0-9.]/g, "");
-
+            const trainId = data.trains[i].trainId;
+            console.log(trainId)
             // If empty, populate for the first time
             if (firstPass) {
               // Create a new row
@@ -157,6 +155,13 @@
         );
       };
 
+      const updateTime = async () => {
+        const timeDiv = document.querySelector(`#clock`);
+        let now = new Date();
+        console.log(now.toLocaleTimeString());
+        timeDiv.innerText = now.toLocaleTimeString();
+      }
+
       // Fetch train data nd populate tables
       const fireApp = async () => {
         const trainData = await getData();
@@ -175,6 +180,7 @@
       };
       fireApp();
       setInterval(fireApp, 10000);
+      setInterval(updateTime, 1000)
     </script>
   </body>
 </html>
