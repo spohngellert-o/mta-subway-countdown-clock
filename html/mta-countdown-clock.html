@@ -60,6 +60,34 @@
         font-size: 24px;
         height: 75px;
       }
+      .currentTemp {
+        font-size:  10.5em;
+      }
+      .day {
+        font-size: 18px;
+      }
+      .night {
+        font-size: 18px;
+      }
+      .date {
+        font-size: 18px;
+      }
+      #clock{
+        text-align: center;
+      }
+      #box2{
+        width: 300px;
+      }
+      .current-temp {
+        font-size: 400px;
+      }
+      span {
+        padding-top: 10px;
+        font-size: 40px;
+      }
+      .current-conditions {
+        width: 100px;
+      }
     </style>
   </head>
 
@@ -73,13 +101,10 @@
           <tbody id="tbody-station-1"></tbody>
         </table>
       </div>
-      <div class="box">
-        <div id="clock">10:00</div>
-        <div id="weather">
-          <a class="weatherwidget-io" href="https://forecast7.com/en/40d68n73d96/11238/?unit=us" data-label_1="BROOKLYN" data-label_2="WEATHER" data-days="3" data-theme="original" >BROOKLYN WEATHER</a>
-          <script>
-          !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
-          </script>
+      <div id="box2" class="box" width="3000px">
+        <div id="clock" text-align="center">10:00</div>
+        <div id="weather" align="center" font-size="200px">
+          <div id="ww_cdc0a1f03786e" v='1.20' loc='id' a='{"t":"responsive","lang":"en","ids":["wl3888"],"cl_bkg":"image","cl_font":"#FFFFFF","cl_cloud":"#FFFFFF","cl_persp":"#81D4FA","cl_sun":"#FFC107","cl_moon":"#FFC107","cl_thund":"#FF5722","sl_tof":"6","sl_sot":"fahrenheit","sl_ics":"one","font":"Arial","el_nme":3}'>Weather Data Source: <a href="https://new-york-city.wetter-heute.org/" id="ww_cdc0a1f03786e_u" target="_blank">das wetter heute in New York City</a></div><script async src="https://srv1.weatherwidget.org/js/?id=ww_cdc0a1f03786e"></script>
       </div>
         
     </div>
@@ -187,5 +212,10 @@
       setInterval(fireApp, 10000);
       setInterval(updateTime, 1000)
     </script>
+    <style>
+      .currentTemp {
+        font-size:  10.5em;
+      }
+    </style>
   </body>
 </html>
